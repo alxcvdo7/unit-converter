@@ -19,6 +19,7 @@ function validateInput(a) {
   if (isNaN(a) || a < 0) {
     inputEl = "invalid"
     console.log("invalid input")
+    alert("Please use digits only.")
   } else {
     inputEl = Number(a)
     showConversion()
@@ -68,5 +69,43 @@ function conversion(a, b, c) {
       el2 = "pounds"
     }
   }
-  c.innerHTML = `${a} ${el} = ${input1} ${el2} | ${a} ${el2} = ${input2} ${el}`
+  return c.innerHTML = `${a} ${el} = ${input1} ${el2} | ${a} ${el2} = ${input2} ${el}`
+}
+
+
+// Conversion
+function conversion(a, b, c) {
+  let el = ""
+  let el2 = ""
+  let result = 0
+  result = a * b;
+  let input1 = result.toFixed(3)
+  result = a / b
+  let input2 = result.toFixed(3)
+  if (b === 3.281) {
+    if (a == 1) {
+      el = "meter"
+      el2 = "foot"
+    } else {
+      el = "meters"
+      el2 = "feet"
+    }
+  } else if (b === 0.264) {
+    if (a == 1) {
+      el = "liter"
+      el2 = "gallon"
+    } else{
+      el = "liters"
+      el2 = "gallons"
+    }
+  } else {
+    if (a == 1) {
+      el = "kilo"
+      el2 = "pound"
+    } else {
+      el = "kilos"
+      el2 = "pounds"
+    }
+  }
+  return c.innerHTML = `${a} ${el} = ${input1} ${el2} | ${a} ${el2} = ${input2} ${el}`
 }
